@@ -4,7 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript</title>
-    <script></script>
+    <script>
+      /*
+        var {변수이름} : 전역 함수 (구 함수)
+        const || let {변수이름} : ES6 최신 문법, 로컬적이며 제한적인 함수 (신 함수)
+        -. const : 생성 시 고정되는 변수
+        -. let : 생성 시 고정되지 않은 변수
+      */
+      const que = confirm("처음 이신가요?");
+      if (que) {
+        alert("처음이시군요!");
+      } else {
+        document.write("<h1>이렇게 자바 스크립트로 작성 중입니다.</h1>");
+      }
+    </script>
   </head>
   <body></body>
 </html>
