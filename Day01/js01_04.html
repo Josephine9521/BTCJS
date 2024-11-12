@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>간편 tip</title>
+    <script>
+      const str = "안녕하세요";
+      const num = 1234;
+      const bool = true;
+      console.log(typeof str, typeof num, typeof bool);
+      console.log('typeof("") : ' + typeof "");
+      console.log('typeof("문자열") : ' + typeof "문자열");
+      console.log('typeof("1234") : ' + typeof "1234");
+      console.log("typeof(1234) : " + typeof 1234);
+      console.log("typeof(true) : " + typeof true);
+      console.log('typeof("true") : ' + typeof "true");
+      console.log("typeof(false) : " + typeof false);
+      console.log("typeof(null) : " + typeof null);
+      console.log("typeof(undefined) : " + typeof undefined);
+      console.log("0 / 0 : " + 0 / 0);
+      console.log('parseInt("abc") : ' + parseInt("abc"));
+      console.log(" NaN === NaN : " + NaN === NaN);
+      console.log("isNaN(NaN) : " + isNaN(NaN));
+    </script>
+  </head>
+  <body>
+    <h2>
+      <pre>
+            num 타입 변환 (str > num) = num * 1
+            str 타입에 !! 입력 시 bool 타입 변환됨
+            + '(공백)' > 문자가 됨
+   
+            <정석 루트 변환 방법>
+            String()
+            Number()
+            Boolean() 
+        </pre
+      >
+    </h2>
+  </body>
+</html>
