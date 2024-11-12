@@ -4,34 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>구구단</title>
-    <script>
-      let list = `<table><thead><tr><th>단수</th><th>구구단</th>
-        <th>결과</th></tr></thead><tbody>`;
-      for (let i = 1; i < 5; i++) {
-        for (let j = 0; j < 9; j++) {
-          list += `<tr>
-            <td>${i + 1}단</td>
-            <td>${i + 1} x ${j + 1}</td>
-            <td>${(i + 1) * (j + 1)}</td>
-            </tr>`;
-        }
-      }
-      list += ` </tbody></table>`;
-      document.write(list);
 
-      let list2 = `<div id="container"><table name="second"><thead><tr><th>단수</th><th>구구단</th><th>결과</th></tr></thead><tbody>`;
-      for (let i = 5; i < 9; i++) {
-        for (let j = 0; j < 9; j++) {
-          list2 += `<tr>
-            <td>${i + 1}단</td>
-            <td>${i + 1} x ${j + 1}</td>
-            <td>${(i + 1) * (j + 1)}</td>
-            </tr>`;
-        }
-      }
-      list2 += ` </tbody></table></div>`;
-      document.write(list2);
-    </script>
     <style>
       table {
         text-align: center;
@@ -60,6 +33,35 @@
         transform: translateY(-57rem);
       }
     </style>
+
+    <script>
+      let list = `<table><thead><tr><th>단수</th><th>구구단</th>
+      <th>결과</th></tr></thead><tbody>`;
+      for (let i = 1; i < 5; i++) {
+        for (let j = 0; j < 9; j++) {
+          list += `<tr>
+          <td>${i + 1}단</td>
+          <td>${i + 1} x ${j + 1}</td>
+          <td>${(i + 1) * (j + 1)}</td>
+          </tr>`;
+        }
+      }
+      list += ` </tbody></table>`;
+      document.write(list);
+
+      let list2 = `<div id="container"><table name="second"><thead><tr><th>단수</th><th>구구단</th><th>결과</th></tr></thead><tbody>`;
+      for (let i = 5; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+          list2 += `<tr>
+          <td>${i + 1}단</td>
+          <td>${i + 1} x ${j + 1}</td>
+          <td>${(i + 1) * (j + 1)}</td>
+          </tr>`;
+        }
+      }
+      list2 += ` </tbody></table></div>`;
+      document.write(list2);
+    </script>
   </head>
   <body></body>
 </html>
