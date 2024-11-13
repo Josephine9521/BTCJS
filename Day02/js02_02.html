@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>배열, for in/of</title>
+    <title>배열, for 기본</title>
     <script>
       const arr = [
         "강아지",
@@ -15,10 +15,13 @@
         "토끼",
         "여우",
       ];
-
-      for (const i in arr) {
-        console.log(i);
+      for (let i = 0; i < arr.length; i++) {
+        console.log(i, arr[i]);
       }
+      for (let i = arr.length - 1; i > 0; i--) {
+        console.log("reverse : ", i, arr[i]);
+      }
+      // arr.length = 0 > 배열 비우기
     </script>
   </head>
   <body></body>
