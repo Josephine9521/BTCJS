@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>좌석 배치도 만들기</title>
+    <script>
+      const count = prompt("입장객의 수를 입력하세요.");
+      const row = prompt("입장객이 한 줄에 몇 명씩 앉을지 입력하세요.");
+
+      let list = `<table><thead>`;
+      for (let i = 1; i <= row; i++) {
+        list += `<tr>`;
+        list += `<th>${i}</th></tr></thead>`;
+        for (let j = i; j < count / row; j++) {
+          list += `<tbody><tr><td>${j * i}</td></tr>`;
+        }
+      }
+
+      list += `</tbody></table>`;
+      document.write(list);
+    </script>
+    <style>
+      table {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      tr,
+      th,
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
