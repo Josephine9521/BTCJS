@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스코프, 함수스코프</title>
+    <script>
+      let pi = 3.14;
+      console.log(`1. pi 값은 ${pi} 입니다.`);
+
+      {
+        let pi = 3.141592;
+        console.log(`2. pi 값은 ${pi} 입니다.`);
+      }
+      console.log(`3. pi 값은 ${pi} 입니다.`);
+
+      function sample() {
+        let pi = 3.14155555;
+        console.log(`4. pi 값은 ${pi} 입니다.`);
+      }
+      sample();
+      console.log(`5. pi 값은 ${pi} 입니다.`);
+
+      function myscope() {
+        var a = "나는 var의 a 입니다.";
+        console.log(a);
+        {
+          var b = "나는 var의 b 입니다.";
+          let c = "나는 let의 c 입니다.";
+        }
+        console.log(b);
+        console.log(c);
+      }
+      myscope();
+    </script>
+  </head>
+  <body></body>
+</html>
