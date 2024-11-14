@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>확률계산기</title>
+    <style>
+      span {
+        margin-right: 50px;
+      }
+      div {
+        background-color: yellow;
+        margin: 5px;
+        /* width: 20px; */
+        height: 20px;
+        border: 1px solid #222;
+        transition: transform 1s ease-in-out;
+      }
+      div:hover {
+        transform: translate(2);
+      }
+    </style>
+  </head>
+  <body>
+    <span class="label">1이 나올 시:</span>
+    <div>숫자1</div>
+    <span class="label">2이 나올 시:</span>
+    <div>숫자2</div>
+    <span class="label">3이 나올 시:</span>
+    <div>숫자3</div>
+    <span class="label">4이 나올 시:</span>
+    <div>숫자4</div>
+    <span class="label">5이 나올 시:</span>
+    <div>숫자5</div>
+    <span class="label">6이 나올 시:</span>
+    <div>숫자6</div>
+    <script>
+      const inp = prompt("몇 회를 돌리시겠습니까?");
+      //const num = Math.floor(Math.random()*45)+1;
+      let num1 = 0;
+      let num2 = 0;
+      let num3 = 0;
+      let num4 = 0;
+      let num5 = 0;
+      let num6 = 0;
+      for (let i = 0; i < inp; i++) {
+        const num = Number((Math.floor(Math.random() * 6) + 1).toFixed(0));
+        console.log("num 값 : ", num);
+        if (num == 1) {
+          num1 += 1;
+        } else if (num == 2) {
+          num2 += 1;
+        } else if (num == 3) {
+          num3 += 1;
+        } else if (num == 4) {
+          num4 += 1;
+        } else if (num == 5) {
+          num5 += 1;
+        } else {
+          num6 += 1;
+        }
+        console.log("횟수 :", i);
+        console.log("num 값 :", num);
+        console.log(
+          "num1:",
+          num1,
+          "번",
+          "\n",
+          "num2:",
+          num2,
+          "번",
+          "\n",
+          "num3:",
+          num3,
+          "번",
+          "\n",
+          "num4:",
+          num4,
+          "번",
+          "\n",
+          "num5:",
+          num5,
+          "번",
+          "\n",
+          "num6:",
+          num6,
+          "번"
+        );
+        console.log("검증 : ", num1 + num2 + num3 + num4 + num5 + num6);
+      }
+    </script>
+    <script>
+      const divs = document.querySelectorAll("div");
+      const result = [num1, num2, num3, num4, num5, num6];
+      divs.forEach((v, i) => {
+        v.style.width = `${result[i] / 10}px`;
+        v.textContent = `${result[i]}`;
+        v.style.marginright = "50px";
+      });
+    </script>
+  </body>
+</html>
