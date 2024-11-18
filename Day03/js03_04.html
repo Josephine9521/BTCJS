@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로또 엔진 만들기</title>
+    <style>
+      table {
+        border: 2px solid black;
+        border-collapse: collapse;
+        text-align: center;
+      }
+
+      th,
+      td,
+      tr {
+        border: 2px solid black;
+        width: 200px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="text"></div>
+    <table id="lottotable">
+      <thead>
+        <tr id="lottoline">
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="lottoRow">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <button onclick="addTd()">Add Cell</button>
+    <script>
+      //let arr = Array(6).fill(0);
+      const contents = document.querySelectorAll("td");
+      function lotto(count, max) {
+        const numbers = new Set();
+        while (numbers.size < count) {
+          const lottoNumber = Math.floor(Math.random() * max) + 1;
+
+          numbers.add(lottoNumber);
+        }
+        return Array.from(numbers);
+      }
+      const arr = lotto(6, 45);
+      console.log(arr);
+
+      for (let i = 0; i < contents.length; i++) {
+        contents[i].textContent = arr[i];
+      }
+
+      let numberTh = 0;
+      function addTd() {
+        const line = document.getElementById("lottoline");
+        const newTh = document.createElement("th");
+        const row = document.getElementById("lottoRow");
+        const newTd = document.createElement("td");
+        for (let i = 0; i < 7; i++) {
+          let newNumber = Math.floor(Math.random() * 45) + 1;
+          newTd.textContent = newNumber;
+          line.appendChild(newTh);
+          row.appendChild(newTd);
+        }
+        newTh.textContent = ++numberTh;
+      }
+    </script>
+  </body>
+</html>
