@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>타이머 응용</title>
+    <script>
+      // 재귀함수
+      // for (let i = 0; i < 10; i++) {}
+      let count = 0;
+
+      const inc = function inc() {
+        console.log(count++);
+        setTimeout(inc, 1000);
+      };
+      inc();
+      setTimeout(() => {
+        console.log("안녕");
+      }, 1000);
+    </script>
+  </head>
+
+  <body></body>
+</html>
