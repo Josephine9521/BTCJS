@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function 함수</title>
+    <script>
+      // 함수 선언식 - 호이스팅 가능, 어디든지 호출 가능
+      // function : 1급 객체 (함수이나 값처럼 처리 가능)
+      function fn() {
+        console.log("안녕하세요.");
+        return "반갑습니다.";
+      }
+      const inhello = fn();
+      console.log(inhello);
+
+      // 함수 표현식 - 호이스팅 불가능.
+      // 표현하는 순간부터 사용 가능.
+      const fn2 = function () {
+        console.log("안녕하세요_2");
+        return "반갑습니다_2";
+      };
+      // fn2();
+      console.log(fn2());
+    </script>
+  </head>
+  <body></body>
+</html>
