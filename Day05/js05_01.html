@@ -5,33 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lotto 중복 제거_indexOf 와 include</title>
     <script>
-            const count = Array(45).fill(0); // 해당 숫자 카운팅 용
+      const count = Array(46).fill(0); // 해당 숫자 카운팅 용
 
-            const arr = [];
-            while (arr.length < 6) {
-              const ran = Math.floor(Math.random() * 45 + 1);
-              if (!arr.includes(ran)) arr.push(ran);
-              //if (arr.length >= 6) break;
-            }
-            // sort : a - b 오름차 순,
-            //        b - a 내림차 순
-            console.log(arr.sort((a, b) => a - b));
+      function lotto() {
+        const arr = [];
+        while (arr.length < 6) {
+          const ran = Math.floor(Math.random() * 45 + 1);
+          if (!arr.includes(ran)) arr.push(ran);
+          //if (arr.length >= 6) break;
+        }
+        // sort : a - b 오름차 순,
+        //        b - a 내림차 순
+        console.log(arr.sort((a, b) => a - b));
+        arr.map((v) => count[v]++); // 값을 가진 위치에 1씩 추가하기
+      }
 
-            // 검증 프로그램 만들기
-            const set = new Set(arr);
-            if (set.size < 6) {
-              while (set.size < 6) {
-                const ran = Math.floor(Math.random() * 45 + 1);
-                set.add(ran);
-                console.log(set);
-              }
-            }
-            console.log(Array.from(set).sort((a, b) => a - b));
+      function tester() {
+        // 검증 프로그램 만들기
+        const arr = lotto();
+        const set = new Set(arr);
+        if (set.size < 6) {
+          while (set.size < 6) {
+            const ran = Math.floor(Math.random() * 45 + 1);
+            set.add(ran);
+            console.log(set);
+          }
+        }
+        console.log(Array.from(set).sort((a, b) => a - b));
+      }
 
-            Array.from(set):
-
+      // Array.from(set);
       // Array.from(set) : Set 객체인 set을 배열로 변환합니다.
       // Set은 중복된 값을 허용하지 않는 데이터 구조입니다.
+
+      lotto();
+      for (let i = 0; i < 100; i++) {
+        lotto();
+      }
+      console.log(count);
+      // tester();
     </script>
   </head>
   <body></body>
