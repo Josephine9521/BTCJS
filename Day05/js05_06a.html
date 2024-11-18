@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>안녕하세요, 이 글은 5초후 지워집니다</h1>
+    <script>
+      let count = 0;
+      const h1 = document.querySelector("h1");
+      setTimeout(() => {
+        const inh1 = (h1.innerHTML =
+          "<h3>인사가 사라졌습니다.</h3>" + "<h3>" + count + "<h3>");
+      }, 5000);
+    </script>
+  </body>
+</html>
