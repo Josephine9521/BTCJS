@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        for (let i = 0; i < 10; i++) {
+          const divs = document.createElement("div");
+          document.body.appendChild(divs);
+          divs.textContent = "div 사용";
+          divs.style.margin = "10px";
+          divs.style.color = "white";
+          divs.style.backgroundColor = "darkblue";
+          divs.style.padding = "0";
+          divs.style.width = "400px";
+          divs.style.textAlign = "center";
+          divs.style.borderRadius = "15px";
+        }
+      });
+    </script>
+  </head>
+  <body></body>
+</html>
