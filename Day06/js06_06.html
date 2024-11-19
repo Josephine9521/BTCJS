@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>이벤트 설정하기</title>
+    <style>
+      h1 {
+        background-color: antiquewhite;
+        width: 600px;
+        border-radius: 15px;
+        color: cornflowerblue;
+      }
+    </style>
   </head>
   <body>
     <script>
@@ -14,8 +22,11 @@
       h1.addEventListener("click", () => {
         h1.innerHTML = `<h1>클릭 횟수 : ${counter++} </h1>`;
       });
-      h1.style.userSelect = "none";
+      h1.style.userSelect = "none"; // 복사 불가
       h1.style.cursor = "pointer";
+      h1.addEventListener("contextmenu", (e) => {
+        e.preventDefault(); // 이벤트 막음
+      });
     </script>
   </body>
 </html>

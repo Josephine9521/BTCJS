@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이템 리스트</title>
+    <style>
+      ul {
+        padding: 0;
+        list-style-type: none;
+      }
+      li {
+        background-color: bisque;
+        width: 270px;
+        margin: 5px 10px;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+      }
+      li:hover {
+        background-color: yellow;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {});
+    </script>
+  </head>
+  <body>
+    <h1>아이템 리스트 생성</h1>
+    <input id="inp" type="text" required onkeyup="onKey(this)" />
+    <button id="add">Create</button>
+    <hr />
+    <ul id="itemList"></ul>
+    <script>
+      const itemsInput = document.getElementById("inp");
+      const itemList = document.getElementById("itemList");
+      const btn = document.getElementById("add");
+
+      function click(event) {
+        alert(event.target.textContent + " 클릭");
+      }
+      function onKey(e) {
+        console.log(e.value);
+      }
+
+      btn.addEventListener("click", () => {
+        if (!itemsInput.value.trim()) {
+          alert("입력요망");
+        } else {
+          const li = document.createElement("li");
+          li.textContent = itemsInput.value;
+          li.addEventListener("click", click);
+          itemList.appendChild(li);
+          itemsInput.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
