@@ -10,15 +10,31 @@
         list-style-type: none;
       }
       li {
-        background-color: bisque;
+        background-color: black;
         width: 270px;
         margin: 5px 10px;
         padding: 10px;
         border-radius: 5px;
-        text-align: center;
+        color: white;
       }
       li:hover {
-        background-color: yellow;
+        background-color: gray;
+        color: white;
+      }
+      #inp {
+        background-color: whitesmoke;
+        border-radius: 15px;
+        width: 300px;
+        height: 30px;
+        color: black;
+      }
+      #add {
+        background-color: black;
+        color: white;
+        width: 70px;
+        height: 40px;
+        border-radius: 15px;
+        text-align: center;
       }
     </style>
     <script>
@@ -47,13 +63,23 @@
         if (!itemsInput.value.trim()) {
           alert("입력요망");
         } else {
+          const inp = document.createElement("input");
           const li = document.createElement("li");
-          li.textContent = itemsInput.value;
+          inp.setAttribute("type", "checkbox");
           li.addEventListener("click", click);
-          itemList.appendChild(li);
+          li.appendChild(inp);
+          // li.textContent = itemsInput.value;
+          itemList.appendChild(li).append(inp, itemsInput.value);
           itemsInput.value = "";
         }
       });
+      /*
+      inp.addEventListenr("change",(event) => {
+      event.target.checked 
+      ? console.log("checked")
+      : console.log("unchecked");
+      })
+      */
     </script>
   </body>
 </html>
