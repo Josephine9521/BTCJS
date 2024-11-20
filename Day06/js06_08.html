@@ -4,6 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>this 와 event.target.value</title>
+    <script>
+      const url = "https://snu.ac.kr";
+      fetch(url)
+        .then((res) => res.text())
+        .then((data) => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(data, "text/html");
+          //const bodyContent = doc.body.innerHTML;
+          //console.log(bodyContent);
+
+          const myClass = doc.querySelector(".board-index-img1");
+          const infoTitle = myClass.querySelectorAll(".title");
+          const infoSub = myClass.querySelectorAll(".sub");
+          const infoUrl = myClass.querySelectorAll("a");
+          infoUrl.forEach((v) => {
+            console.log(1, v);
+          });
+
+          const url = "https://snu.ac.kr";
+
+          console.log(myClass);
+          infoTitle.forEach((v, i) => {
+            document.write(`<h3>${i + 1} : ${v.innerHTML}</h3>`);
+            document.write(`<h4>${i + 1}-${1} : ${infoSub[i].innerHTML}</h4>`);
+            const slicedUrl = infoUrl[i].getAttribute("href").slice(0, 40);
+            document.write(
+              `url : <a href="${url + slicedUrl}">${url + slicedUrl}</a>`
+            );
+          });
+        });
+    </script>
   </head>
   <body></body>
 </html>
