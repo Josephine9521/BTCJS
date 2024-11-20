@@ -29,6 +29,7 @@
             document.write(`<h3>${i + 1} : ${v.innerHTML}</h3>`);
             document.write(`<h4>${i + 1}-${1} : ${infoSub[i].innerHTML}</h4>`);
             const slicedUrl = infoUrl[i].getAttribute("href").slice(0, 40);
+            //console.log(2, slicedUrl);
             document.write(
               `url : <a href="${url + slicedUrl}">${url + slicedUrl}</a>`
             );
