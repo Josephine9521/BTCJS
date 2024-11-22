@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Json 샘플_select tag</title>
+    <script>
+      const myGet = (opt) => {
+        const select = document.createElement("select");
+        document.body.appendChild(select);
+        for (let i = 0; i < 100; i++) {
+          const option = document.createElement("option");
+          option.textContent = opt[i];
+          select.appendChild(option);
+        }
+      };
+
+      const myGet2 = (opt) => {
+        const div = document.createElement("div");
+        document.body.appendChild(div);
+        for (let i = 0; i < 100; i++) {
+          div.textContent = opt[i];
+        }
+      };
+
+      const url = `https://jsonplaceholder.typicode.com/posts`;
+      fetch(url)
+        .then((response) => response.json())
+        .then((json) => json.map((v) => v.title))
+        .then(myGet);
+
+      url2 = `https://jsonplaceholder.typicode.com/posts`;
+      fetch(url2)
+        .then((response) => response.json())
+        .then((json) => json.map((v) => v.body))
+        .then(myGet2);
+    </script>
+  </head>
+  <body></body>
+</html>
