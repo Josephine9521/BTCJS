@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>csv 분석</title>
+  </head>
+  <body>
+    <input type="file" id="csvFile" />
+    <button id="uploadBtn">csv 분석</button>
+    <pre id="output"></pre>
+
+    <script>
+      document.querySelector("#uploadBtn").addEventListener("click", () => {
+        const inp = document.getElementById("csvFile");
+        const file = inp.files[0]; // console.log(inp) ->  console.dir(inp);
+
+        if (file) {
+          const reader = new FileReader();
+          // reader.onload = function(매개변수){} : {}값을 ()기준으로 기능, 뒤의 값을 부여
+          reader.onload = (event) => {
+            const text = event.target.result;
+            console.log(text);
+          };
+          reader.readAsText(file);
+        }
+      });
+    </script>
+  </body>
+</html>

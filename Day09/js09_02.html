@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>엑셀 분석</title>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <style>
+      input {
+        background-color: aliceblue;
+        color: black;
+      }
+      button {
+        margin-top: 10px;
+        padding: 5px;
+        border-radius: 15px;
+        border-color: blue;
+        background-color: white;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" id="csvFile" /><br />
+    <button id="uploadBtn">xlsx 분석</button>
+    <pre id="output"></pre>
+
+    <script>
+      document.querySelector("#uploadBtn").addEventListener("click", () => {
+        const inp = document.getElementById("csvFile");
+        const file = inp.files[0]; // console.log(inp) ->  console.dir(inp);
+
+        if (file) {
+          const reader = new FileReader();
+          // reader.onload = function(매개변수){} : {}값을 ()기준으로 기능, 뒤의 값을 부여
+          reader.onload = (event) => {
+            const data = new Uint8Array(event.target.result);
+            const workBook = XLSX.read(data, { type: "array" });
+            const firstSheetName = workBook.SheetNames[0];
+            const workSheet = workBook.Sheets[firstSheetName];
+            const json = XLSX.utils.sheet_to_json(workSheet);
+            const sliceJson = json.slice(0, 100);
+            console.log(json);
+            document.getElementById("output").textContent = JSON.stringify(
+              sliceJson,
+              null,
+              2
+            );
+          };
+          reader.readAsArrayBuffer(file);
+        }
+      });
+    </script>
+  </body>
+</html>
